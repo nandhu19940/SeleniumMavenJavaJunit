@@ -22,4 +22,28 @@ public class configReader {
 		return pro.getProperty("SauceDemoUrl");
 	}
 
+	public String usernameTextBox() {
+		return pro.getProperty("usernameField");
+	}
+
+	public String passwordTextBox() {
+		return pro.getProperty("passwordField");
+	}
+
+	public String userID() {
+		return pro.getProperty("UserID");
+	}
+
+	public String passcode() {
+		return pro.getProperty("Passcode");
+	}
+
+	public String loginButton() {
+		return pro.getProperty("loginbutton");
+	}
+
+	public String productText() {
+		return pro.getProperty("productText");
+	}
+
 }

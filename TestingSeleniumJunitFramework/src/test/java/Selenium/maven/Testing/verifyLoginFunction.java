@@ -43,18 +43,16 @@ public class verifyLoginFunction {
 		String pageTitle = driver.getTitle();
 		System.out.println(pageTitle);
 		Assert.assertEquals("Swag Labs", pageTitle);
-		WebElement username = driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
-		WebElement password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
-		WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"login-button\"]"));
-		username.sendKeys("standard_user");
-		password.sendKeys("secret_sauce");
+		WebElement username = driver.findElement(By.xpath(obj.usernameTextBox()));
+		WebElement password = driver.findElement(By.xpath(obj.passwordTextBox()));
+		WebElement loginButton = driver.findElement(By.xpath(obj.loginButton()));
+		username.sendKeys(obj.userID());
+		password.sendKeys(obj.passcode());
 		loginButton.click();
 
 		final WebDriverWait waitForDashBoradPageElement = new WebDriverWait(driver, Duration.ofSeconds(10));
-		waitForDashBoradPageElement.until(
-				ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]/span[contains(text(),'Products')]")));
-		WebElement dashBoradPageConfirmation = driver
-				.findElement(By.xpath("//div[2]/span[contains(text(),'Products')]"));
+		waitForDashBoradPageElement.until(ExpectedConditions.presenceOfElementLocated(By.xpath(obj.productText())));
+		WebElement dashBoradPageConfirmation = driver.findElement(By.xpath(obj.productText()));
 		String dashBoradPageTextVerify = dashBoradPageConfirmation.getText();
 		if (dashBoradPageTextVerify.equals("Products")) {
 			System.out.println("Successfully entered in to dashboard page and verified the element");
