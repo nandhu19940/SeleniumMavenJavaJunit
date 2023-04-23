@@ -17,10 +17,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import Selenium.maven.ConfigReader.configReader;
+
 public class verifyLoginFunction {
 
 	private static ChromeDriver driver;
 	WebElement element;
+	configReader obj = new configReader();
 
 	@BeforeClass
 	public static void openBrowser() {
@@ -32,7 +35,7 @@ public class verifyLoginFunction {
 
 	@Before
 	public void launchWebsite() {
-		driver.get("https://www.saucedemo.com/");
+		driver.get(obj.appUrl());
 	}
 
 	@Test
