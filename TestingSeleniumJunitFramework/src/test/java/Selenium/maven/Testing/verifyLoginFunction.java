@@ -54,7 +54,7 @@ public class verifyLoginFunction {
 		waitForDashBoradPageElement.until(ExpectedConditions.presenceOfElementLocated(By.xpath(obj.productText())));
 		WebElement dashBoradConfirmationPage = driver.findElement(By.xpath(obj.productText()));
 		String dashBoradPageTextVerify = dashBoradConfirmationPage.getText();
-		if (dashBoradPageTextVerify.equals("Products")) {
+		if (dashBoradPageTextVerify.equals(obj.productTextVerification())) {
 			System.out.println("Successfully entered in to dashboard page and verified the element");
 		}
 	}
