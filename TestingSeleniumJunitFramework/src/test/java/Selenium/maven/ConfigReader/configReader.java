@@ -46,4 +46,8 @@ public class configReader {
 		return pro.getProperty("productText");
 	}
 
+	public String productTextVerification() {
+		return pro.getProperty("productTextExpected");
+	}
+
 }
