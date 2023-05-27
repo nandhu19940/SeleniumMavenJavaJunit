@@ -1,5 +1,7 @@
 package Selenium.maven.Testing;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.junit.After;
@@ -11,9 +13,10 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,20 +24,22 @@ import Selenium.maven.ConfigReader.configReader;
 
 public class verifyLoginFunction {
 
-	private static ChromeDriver driver;
+	private static WebDriver driver;
 	WebElement element;
 	configReader obj = new configReader();
 
 	@BeforeClass
-	public static void openBrowser() {
+	public static void openBrowser() throws MalformedURLException {
+
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
-		driver = new ChromeDriver(options);
+		URL remoteURL = new URL("http://localhost:4444/wd/hub");
+		driver = new RemoteWebDriver(remoteURL, options);
 
 	}
 
 	@Before
-	public void launchWebsite() {
+	public void launchWebsite() throws MalformedURLException {
 		driver.get(obj.appUrl());
 	}
 
