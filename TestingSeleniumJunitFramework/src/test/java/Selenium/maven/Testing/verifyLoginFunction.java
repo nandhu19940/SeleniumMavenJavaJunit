@@ -60,7 +60,7 @@ public class verifyLoginFunction {
 		WebElement dashBoradConfirmationPage = driver.findElement(By.xpath(obj.productText()));
 		String dashBoradPageTextVerify = dashBoradConfirmationPage.getText();
 		if (dashBoradPageTextVerify.equals(obj.productTextVerification())) {
-			System.out.println("Successfully entered in to dashboard page and verified the element");
+			System.out.println("Successfully entered in dashboard page and verified the element successfully");
 		}
 	}
 
