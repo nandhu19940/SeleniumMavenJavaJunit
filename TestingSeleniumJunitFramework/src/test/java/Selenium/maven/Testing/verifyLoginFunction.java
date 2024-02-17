@@ -69,7 +69,7 @@ public class verifyLoginFunction {
 		driver.quit();
 	}
 
-	// New comments
+	// New comments added for github
 
 	public static void main(String[] args) {
 		Result result = JUnitCore.runClasses(verifyLoginFunction.class);
