@@ -42,6 +42,30 @@ public class configReader {
 		return pro.getProperty("loginbutton");
 	}
 
+	public String faceBookUrl() {
+		return pro.getProperty("FBurl");
+	}
+
+	public String usernameTextBoxFacebook() {
+		return pro.getProperty("UsernameFieldFB");
+	}
+
+	public String passwordTextBoxFacebook() {
+		return pro.getProperty("PasswordFieldFB");
+	}
+
+	public String userIDFacebook() {
+		return pro.getProperty("UserIDFB");
+	}
+
+	public String passcodeFacebook() {
+		return pro.getProperty("PasscodeFB");
+	}
+
+	public String loginButtonFacebook() {
+		return pro.getProperty("LoginButtonFB");
+	}
+
 	public String productText() {
 		return pro.getProperty("productText");
 	}
